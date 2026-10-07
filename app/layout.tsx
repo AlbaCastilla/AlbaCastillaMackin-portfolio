@@ -12,11 +12,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
+
   title: {
     default: metaData.title,
     template: `%s | ${metaData.title}`,
   },
+
   description: metaData.description,
+
   openGraph: {
     images: metaData.ogImage,
     title: metaData.title,
@@ -26,6 +29,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+
   robots: {
     index: true,
     follow: true,
@@ -37,10 +41,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
   twitter: {
     title: metaData.name,
     card: "summary_large_image",
   },
+
   icons: {
     icon: "/favicon.ico",
   },
@@ -74,29 +80,17 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="w-full overflow-x-hidden antialiased">
+      <body className="min-h-screen w-full overflow-x-hidden antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <main
-            className="
-              mx-auto
-              flex
-              min-h-screen
-              w-full
-              max-w-6xl
-              flex-col
-              px-4
-              sm:px-6
-              lg:px-8
-            "
-          >
+          <main className="flex min-h-screen w-full flex-col px-4 sm:px-6 md:px-8 lg:px-10">
             <Navbar />
 
-            <div className="flex-1 w-full">
+            <div className="flex-1 w-full min-w-0">
               {children}
             </div>
 
