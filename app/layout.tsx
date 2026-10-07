@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.className}`}>
+    <html lang="en" className={inter.className}>
       <head>
         <link
           rel="alternate"
@@ -73,17 +73,35 @@ export default function RootLayout({
           title="JSON Feed"
         />
       </head>
-      <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12">
+
+      <body className="w-full overflow-x-hidden antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[624px] w-full">
+          <main
+            className="
+              mx-auto
+              flex
+              min-h-screen
+              w-full
+              max-w-6xl
+              flex-col
+              px-4
+              sm:px-6
+              lg:px-8
+            "
+          >
             <Navbar />
-            {children}
+
+            <div className="flex-1 w-full">
+              {children}
+            </div>
+
             <Footer />
+
             <Analytics />
             <SpeedInsights />
           </main>

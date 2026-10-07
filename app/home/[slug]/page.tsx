@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
-import { formatDate, getBlogPosts } from "app/lib/posts";
+import { formatDate, getHomePosts } from "app/lib/posts";
 import { metaData } from "app/lib/config";
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  let posts = getHomePosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -16,7 +16,7 @@ export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
   const { slug } = await params;
-  let post = getBlogPosts().find((post) => post.slug === slug);
+  let post = getHomePosts().find((post) => post.slug === slug);
   if (!post) {
     return;
   }
@@ -39,7 +39,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `${metaData.baseUrl}/blog/${post.slug}`,
+      url: `${metaData.baseUrl}/home/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -55,9 +55,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function Blog({ params }) {
+export default async function Home({ params }) {
   const { slug } = await params;
-  let post = getBlogPosts().find((post) => post.slug === slug);
+  let post = getHomePosts().find((post) => post.slug === slug);
 
   if (!post) {
     notFound();
@@ -71,7 +71,7 @@ export default async function Blog({ params }) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            "@type": "HomePosting",
             headline: post.metadata.title,
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
@@ -79,7 +79,7 @@ export default async function Blog({ params }) {
             image: post.metadata.image
               ? `${metaData.baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${metaData.baseUrl}/blog/${post.slug}`,
+            url: `${metaData.baseUrl}/home/${post.slug}`,
             author: {
               "@type": "Person",
               name: metaData.name,

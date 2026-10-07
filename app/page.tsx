@@ -22,7 +22,7 @@ export default function Page() {
           Vercel, and Tailwind CSS.
         </p>
         <p>
-          Nextfolio has everything you need for a portfolio: MDX blog, SEO, RSS,
+          Nextfolio has everything you need for a portfolio: MDX home, SEO, RSS,
           Atom & JSON feeds, analytics, Tweet & YouTube embeds, KaTeX and {""}
           <a
             target="_blank"
@@ -48,7 +48,7 @@ export default function Page() {
           </a>{" "}
           your Nextfolio site with Vercel in minutes and follow the set up
           instructions in the{" "}
-          <a href="/blog/getting-started">Getting Started</a> post.
+          <a href="/home/getting-started">Getting Started</a> post.
         </p>
         <p>
           Built and maintained by{" "}

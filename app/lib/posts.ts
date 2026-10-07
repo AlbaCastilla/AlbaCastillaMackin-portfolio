@@ -50,7 +50,7 @@ function getMDXData(dir: string) {
   });
 }
 
-export function getBlogPosts() {
+export function getHomePosts() {
   return getMDXData(path.join(process.cwd(), "content"));
 }
 

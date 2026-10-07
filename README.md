@@ -13,7 +13,7 @@ A clean, fast, and lightweight portfolio template built with [Next.js](https://n
 
 ## Features
 
-- **[MDX](https://mdxjs.com/) Support**: Use Markdown with JSX components for blog posts.
+- **[MDX](https://mdxjs.com/) Support**: Use Markdown with JSX components for home posts.
 - **Light and Dark Mode Toggle**: Switch between themes for better readability.
 - **Dynamic [OG Images](https://vercel.com/docs/functions/og-image-generation)**: Auto-generate Open Graph images for sharing.
 - **SEO Optimization**: Enhance search visibility with sitemap, robots.txt, and JSON-LD schema.
@@ -46,9 +46,9 @@ The server will be running at [http://localhost:3000](http://localhost:3000).
 
 1. Update the site metadata and social links in `app/config.ts` to set up SEO, feeds, social links, and Open Graph settings.
 2. Update your routes in `app/sitemap.ts` for SEO optimization.
-3. Update your blog posts in the `/content` folder.
+3. Update your home posts in the `/content` folder.
 
-For more information about configuration, follow the instructions in the [Getting Started](https://nextfolio-template.vercel.app/blog/getting-started#configuration) post.
+For more information about configuration, follow the instructions in the [Getting Started](https://nextfolio-template.vercel.app/home/getting-started#configuration) post.
 
 ## Contributing
 

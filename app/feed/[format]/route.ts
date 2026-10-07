@@ -1,5 +1,5 @@
 import { Feed } from "feed";
-import { getBlogPosts } from "app/lib/posts";
+import { getHomePosts } from "app/lib/posts";
 import { metaData } from "app/lib/config";
 import { NextResponse } from "next/server";
 
@@ -45,10 +45,10 @@ export async function GET(
     },
   });
 
-  const allPosts = await getBlogPosts();
+  const allPosts = await getHomePosts();
 
   allPosts.forEach((post) => {
-    const postUrl = `${BaseUrl}blog/${post.slug}`;
+    const postUrl = `${BaseUrl}home/${post.slug}`;
     const categories = post.metadata.tags
       ? post.metadata.tags.split(",").map((tag) => tag.trim())
       : [];
